@@ -7,7 +7,7 @@ data class Order(
     val size: PizzaSizePrice,
     val toppings: List<String>,
     val type: String,
-    var price: String = ""
+    var price: Int = 0
 )
 
 fun List<OrderNetwork>?.mapToDomainData(): List<Order> {
@@ -29,7 +29,7 @@ fun List<OrderNetwork>?.mapToDomainData(): List<Order> {
                         PizzaSizePrice.SMALL -> size.price
                         PizzaSizePrice.MEDIUM -> size.price
                         PizzaSizePrice.LARGE -> size.price
-                        else -> ""
+                        else -> 0
                     }
                 }
             )
